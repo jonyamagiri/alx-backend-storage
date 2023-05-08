@@ -2,7 +2,7 @@
     -- table dump: metal_bands.sql.zip
     -- column names must be: band_name and lifespan (in years)
     -- use attributes formed and split for computing the lifespan
-SELECT band_name, IFNULL(split, 2020) - formed AS lifespan
+SELECT band_name, (IFNULL(split, '2020') - formed) AS lifespan
 FROM metal_bands
-WHERE COALESCE(style, '') LIKE '%Glam rock%'
+WHERE FIND_IN_SET('Glam rock', IFNULL(style, "")) > 0
 ORDER BY lifespan DESC;
