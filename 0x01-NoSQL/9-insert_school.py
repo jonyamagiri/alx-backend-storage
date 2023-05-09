@@ -2,7 +2,7 @@
 """ module 9-insert_school.py """
 
 
-def insert_school(mongo_collection, **kwargs) -> str:
+def insert_school(mongo_collection, **kwargs):
     """
     Inserts a new document into a collection.
     Args:
@@ -12,4 +12,4 @@ def insert_school(mongo_collection, **kwargs) -> str:
         str: The ID of the newly inserted document.
     """
     result = mongo_collection.insert_one(kwargs)
-    return str(result.inserted_id)
+    return (result.inserted_id)
